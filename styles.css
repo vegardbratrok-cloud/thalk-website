@@ -1,0 +1,431 @@
+/* ================================================
+   THALK — Shared Stylesheet
+   ================================================ */
+
+/* --- Reset ---------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Custom properties ---------------------------- */
+:root {
+  --lavender:    #E9E4F5;
+  --navy:        #1A1B3A;
+  --indigo:      #5B4FCF;
+  --purple:      #A78BD9;
+  --white:       #FFFFFF;
+  --text:        #1A1B3A;
+  --text-mid:    #4a4668;
+  --r-card:      20px;
+  --r-btn:       14px;
+  --max-w:       880px;
+}
+
+/* --- Base ----------------------------------------- */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--lavender);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Container ------------------------------------ */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* ================================================
+   NAV
+   ================================================ */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  background: rgba(233, 228, 245, 0.92);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  border-bottom: 1px solid rgba(91, 79, 207, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-pill {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--indigo);
+  background: rgba(91, 79, 207, 0.1);
+  padding: 5px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+}
+
+/* ================================================
+   HERO
+   ================================================ */
+.hero {
+  background: var(--lavender);
+  padding-block: 72px 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial glow behind the wordmark */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(91, 79, 207, 0.11) 0%, transparent 68%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  opacity: 0.65;
+  margin-bottom: 18px;
+}
+
+.hero-wordmark {
+  font-size: clamp(5.5rem, 22vw, 11rem);
+  font-weight: 900;
+  letter-spacing: -5px;
+  color: var(--text);
+  line-height: 0.92;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.hero-tagline {
+  font-size: clamp(1.05rem, 2.8vw, 1.3rem);
+  font-weight: 600;
+  color: var(--indigo);
+  margin-bottom: 28px;
+  letter-spacing: 0.01em;
+}
+
+.hero-desc {
+  font-size: clamp(0.95rem, 2.2vw, 1.075rem);
+  color: var(--text-mid);
+  max-width: 540px;
+  margin-inline: auto;
+  margin-bottom: 44px;
+  line-height: 1.78;
+}
+
+.stat-inline {
+  font-weight: 800;
+  color: var(--indigo);
+}
+
+/* App Store badge button */
+.btn-appstore {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 13px 24px;
+  border-radius: var(--r-btn);
+  text-decoration: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px rgba(26, 27, 58, 0.28);
+}
+
+.btn-appstore:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(26, 27, 58, 0.38);
+}
+
+.btn-appstore svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  fill: var(--white);
+}
+
+.btn-appstore-label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.btn-appstore-label small {
+  font-size: 0.68rem;
+  font-weight: 400;
+  opacity: 0.72;
+  letter-spacing: 0.01em;
+}
+
+.btn-appstore-label strong {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.hero-meta {
+  margin-top: 18px;
+  font-size: 0.82rem;
+  color: var(--purple);
+  font-weight: 500;
+}
+
+/* ================================================
+   FEATURES
+   ================================================ */
+.features {
+  background: var(--navy);
+  padding-block: 80px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.5px;
+  margin-bottom: 48px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(167, 139, 217, 0.18);
+  border-radius: var(--r-card);
+  padding: 32px 26px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.feature-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: rgba(91, 79, 207, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: var(--purple);
+}
+
+.feature-icon-wrap svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.feature-step {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple);
+  opacity: 0.55;
+  margin-bottom: 8px;
+}
+
+.feature-card h3 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+  letter-spacing: -0.2px;
+}
+
+.feature-card p {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.68;
+}
+
+/* ================================================
+   DEFINITION
+   ================================================ */
+.definition {
+  background: var(--navy);
+  border-top: 1px solid rgba(167, 139, 217, 0.1);
+  padding-block: 72px;
+  text-align: center;
+}
+
+.definition-inner {
+  max-width: 580px;
+  margin-inline: auto;
+}
+
+.definition-text {
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  color: var(--purple);
+  line-height: 1.75;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.definition-text em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* ================================================
+   FOOTER
+   ================================================ */
+.footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(167, 139, 217, 0.08);
+  padding-block: 28px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: 0.8rem;
+  color: var(--purple);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.18s;
+}
+
+.footer-links a:hover { opacity: 1; }
+
+/* ================================================
+   PRIVACY PAGE
+   ================================================ */
+.privacy-header {
+  padding-block: 60px 44px;
+  border-bottom: 1px solid rgba(91, 79, 207, 0.12);
+}
+
+.privacy-header h1 {
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.privacy-date {
+  font-size: 0.875rem;
+  color: var(--purple);
+  font-weight: 500;
+}
+
+.privacy-body {
+  padding-block: 52px 88px;
+}
+
+.privacy-section {
+  margin-bottom: 40px;
+}
+
+.privacy-section:last-child { margin-bottom: 0; }
+
+.privacy-body h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -0.2px;
+}
+
+.privacy-body p {
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 1.78;
+  margin-bottom: 12px;
+}
+
+.privacy-body p:last-child { margin-bottom: 0; }
+
+.privacy-body a {
+  color: var(--indigo);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.privacy-body a:hover { text-decoration: underline; }
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 700px) {
+  .nav { padding-inline: 20px; }
+
+  .hero {
+    padding-block: 56px 80px;
+  }
+
+  .hero-wordmark { letter-spacing: -3px; }
+
+  .features { padding-block: 60px; }
+
+  .features-grid { grid-template-columns: 1fr; }
+
+  .definition { padding-block: 56px; }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links { justify-content: center; }
+}
